@@ -213,4 +213,13 @@ function updateCartCount() {
 }
 
 
+function toggleMobileAccount() {
+  const sidebar = document.querySelector(".desktop-sidebar");
+  const toggle = document.querySelector(".mobile-account-toggle");
+
+  sidebar.classList.toggle("mobile-show");
+  toggle.classList.toggle("active");
+}
+
+
 
