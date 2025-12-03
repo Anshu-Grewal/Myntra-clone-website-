@@ -1,4 +1,8 @@
 // ================= PAGE LOAD =================
+
+
+
+
 // ================= ON LOAD =================
 document.addEventListener("DOMContentLoaded", function () {
   loadWishlist();

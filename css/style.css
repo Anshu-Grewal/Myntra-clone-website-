@@ -12,28 +12,25 @@ body {
 }
 
 /* ================= HEADER DESKTOP ================= */
+ /* ================= HEADER DESKTOP ================= */
 header {
   position: sticky;
   top: 0;
   background: white;
-  display: flex;
+ 
   align-items: center;
-  justify-content: space-between;
+
   padding: 10px 20px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   z-index: 1000;
+  flex-wrap: nowrap;
 }
+
 
 .logo {
   font-size: 2rem;
   font-weight: bold;
   color: #ff3e6c;
-}
-
-/* Desktop Nav */
-header nav {
-  display: flex;
-  gap: 12px;
 }
 
 header nav a {
@@ -99,66 +96,93 @@ header nav a.active {
 }
 
 /* ================= MOBILE VIEW ================= */
+
 @media (max-width: 768px) {
+
+  .mobile-icons {
+    gap: 14px;              /* ✅ icons ke beech balanced space */
+    margin-right: 10px;     /* ✅ 3 dots se thoda distance */
+  }
+
+  .mobile-icons a {
+    font-size: 18px;        /* ✅ uniform icon size */
+  }
+
+  .navbar-brand {
+    font-size: 22px;        /* ✅ logo thoda balanced lage */
+  }
+
+  .navbar-toggler {
+    margin-left: 6px;       /* ✅ icons aur 3 dots ke beech gap */
+  }
+}
+
+
+
+
+
+/* @media (max-width: 768px) {
 
   header {
     position: relative;
-    padding: 12px;
-  }
-
- 
-  .logo {
-    font-size: 1.6rem;
-  }
-
-  
-  .search {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    padding: 8px 10px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .search {
+    display: flex;
+    flex: 1;
+    margin: 0 6px;
   }
 
   .search input {
-    width: 140px;
+    width: 100%;
     font-size: 12px;
   }
 
   .search button {
-    display: inline-block;
     font-size: 11px;
-    padding: 6px 10px;
+    padding: 5px 8px;
   }
 
-
+ 
   header nav,
   header .icons {
     display: none;
   }
 
-
+ 
   .mobile-hamburger {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 24px;
     color: #ff3e6c;
     cursor: pointer;
-    position: absolute;
-    right: 12px;
-    top: 12px;
-    z-index: 10001;
+    flex-shrink: 0;
   }
 
-  /* ===== MOBILE DROPDOWN MENU ===== */
-  header nav.mobile-open {
-    display: flex !important;
-    flex-direction: column;
-    position: absolute;
-    top: 55px;
+ 
+ .mobile-hamburger
+header nav.mobile-open
+ {
+    position: absolute;     
+    top: 100%;              
     right: 10px;
     width: 220px;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
     z-index: 10000;
   }
 
@@ -171,11 +195,8 @@ header nav a.active {
   header nav.mobile-open a:last-child {
     border-bottom: none;
   }
+} */
 
-  header nav.mobile-open a:hover {
-    background: #f5f5f5;
-  }
-}
 
 /* ================= CIRCLE ROW ================= */
 
@@ -1318,7 +1339,7 @@ html, body {
   color: #ff3f6c;
 }
 
-/* ✅ RIGHT PROFILE CONTENT */
+/* RIGHT PROFILE CONTENT */
 .profile-content {
   flex: 1;
   padding: 30px;
@@ -1353,7 +1374,7 @@ html, body {
   font-size: 14px;
 }
 
-/* ✅ EDIT BUTTON */
+/*  EDIT BUTTON */
 .edit-btn {
   grid-column: span 2;
   width: 140px;
@@ -1371,7 +1392,7 @@ html, body {
   background: #e7335d;
 }
 
-/* ✅ MOBILE VIEW FIX */
+/*  MOBILE VIEW FIX */
 @media (max-width: 768px) {
   .profile-container {
     flex-direction: column;
@@ -1719,7 +1740,7 @@ html, body {
 }
 
 
-/* ✅ Desktop par filter button/3-dots HIDE */
+/*  Desktop par filter button/3-dots HIDE */
 @media (min-width: 992px) {
   .filter-toggle-btn,
   .mobile-filter-btn,
@@ -1729,7 +1750,7 @@ html, body {
   }
 }
 
-/* ✅ Product images ko perfectly fit karne ke liye */
+/*  Product images ko perfectly fit karne ke liye */
 .product-card img,
 .product-img-box img {
   width: 100%;
@@ -1738,7 +1759,7 @@ html, body {
   border-radius: 8px;
 }
 
-/* ✅ Tablet ke liye proper grid */
+/* Tablet ke liye proper grid */
 @media (max-width: 1024px) and (min-width: 769px) {
   .product-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -1889,5 +1910,35 @@ html, body {
 
   .edit-btn {
     width: 100%;
+  }
+}
+
+
+
+/* FINAL FIX FOR 3 DOTS GOING DOWN */
+.mobile-header-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Mobile view only */
+@media (max-width: 768px) {
+  .mobile-header-row {
+    justify-content: space-between;
+  }
+
+  .search {
+    position: relative !important;
+    left: 0 !important;
+    transform: none !important;
+    margin: 0 6px;
+    flex: 1;
+  }
+
+  .mobile-hamburger {
+    position: static !important;
+    margin-left: 6px;
+    flex-shrink: 0;
   }
 }
